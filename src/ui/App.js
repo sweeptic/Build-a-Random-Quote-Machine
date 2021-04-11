@@ -4,7 +4,7 @@ import QuoteBox from './QuoteBox';
 
 export const App = () => {
   return (
-    <div className='App' className='container'>
+    <div className='container App'>
       <QuoteBox id='quote-box' />
       <DevTools />
     </div>

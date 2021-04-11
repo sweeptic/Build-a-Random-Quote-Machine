@@ -5,7 +5,7 @@ import React from 'react';
 const QuoteBox = props => {
   React.useEffect(() => {
     props.fetchQuote('');
-  }, []);
+  }, [props]);
 
   return (
     <div id='quote-box' className='col-sm-6 my-5'>
