@@ -1,3 +1,4 @@
+import { quoteMiddleware } from './middleware/feature/quote';
 import { quoteReducer } from './reducers/quote';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { DevTools } from '../ui/DevTool';
@@ -7,7 +8,7 @@ const rootReducer = combineReducers({
   quote: quoteReducer,
 });
 
-const featureMiddleware = [];
+const featureMiddleware = [quoteMiddleware];
 
 const coreMiddleware = [];
 
