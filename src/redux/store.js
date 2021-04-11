@@ -1,3 +1,4 @@
+import { actionSplitterMiddleware } from './middleware/core/actionSplitter';
 import { uiReducer } from './reducers/ui';
 import { normalizeMiddleware } from './middleware/core/normalize';
 import { apiMiddleware } from './middleware/core/api';
@@ -14,7 +15,7 @@ const rootReducer = combineReducers({
 
 const featureMiddleware = [quoteMiddleware];
 
-const coreMiddleware = [apiMiddleware, normalizeMiddleware];
+const coreMiddleware = [actionSplitterMiddleware, apiMiddleware, normalizeMiddleware];
 
 const enhancer = compose(
   applyMiddleware(...featureMiddleware, ...coreMiddleware),
