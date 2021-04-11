@@ -11,7 +11,7 @@ export const apiMiddleware = ({dispatch}) => next => action => {
       // action while maintaining integrity using the feature name.
       fetch(url, { body, method })
         .then(response => response.json())
-      //   .then(response => dispatch(apiSuccess({ response, feature })))
+        .then(response => dispatch(apiSuccess({ response, feature })))
       //   .catch(error => dispatch(apiError({ error, feature })));
     }
 }
