@@ -20,8 +20,8 @@ const QuoteBox = () => {
 
   if (spinner.loading) {
     contents = (
-      <div class='spinner-border' role='status'>
-        <span class='sr-only'>Loading...</span>
+      <div className='spinner-border' role='status'>
+        <span className='sr-only'>Loading...</span>
       </div>
     );
   } else {
@@ -31,15 +31,15 @@ const QuoteBox = () => {
   return (
     <div id='quote-box' className='col-sm-6 mx-auto border border-dark rounded mt-5'>
       <div>
-        <h1 className=' d-inline'>Quote generator </h1>
+        <h1 className=' d-inline'>Random Quote Machine </h1>
         {contents}
       </div>
 
-      <div className='card mt-5'>
+      <div className='card m-4'>
         <span className='card-header' id='author'>
           {quoteAuthor}
         </span>
-        <div className='card-body' style={{ minHeight: '10rem' }}>
+        <div className='card-body' style={{ minHeight: '13rem' }}>
           <p className='card-text' id='text'>
             {quoteText}
           </p>
