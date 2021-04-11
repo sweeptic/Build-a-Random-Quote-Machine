@@ -12,3 +12,9 @@ export const uiReducer = (ui = initState, action) => {
       return ui;
   }
 };
+
+const loadingState = state => state.ui;
+
+export const getLoadingState = state => {
+  return loadingState(state);
+};
