@@ -1,3 +1,4 @@
+import { normalizeMiddleware } from './middleware/core/normalize';
 import { apiMiddleware } from './middleware/core/api';
 import { quoteMiddleware } from './middleware/feature/quote';
 import { quoteReducer } from './reducers/quote';
@@ -11,7 +12,10 @@ const rootReducer = combineReducers({
 
 const featureMiddleware = [quoteMiddleware];
 
-const coreMiddleware = [apiMiddleware];
+const coreMiddleware = [
+  apiMiddleware,
+  normalizeMiddleware
+];
 
 const enhancer = compose(
   applyMiddleware(...featureMiddleware, ...coreMiddleware),
