@@ -15,6 +15,10 @@ const QuoteBox = () => {
 
   return (
     <div id='quote-box' className='col-sm-6 mx-auto border border-dark rounded mt-5'>
+      {/* <div class="spinner-border" role="status">
+  <span class="sr-only">Loading...</span>
+</div> */}
+
       <h1 className='mb-5'>Quote generator</h1>
 
       <div className='card'>
