@@ -1,3 +1,4 @@
+import { apiMiddleware } from './actions/api';
 import { quoteMiddleware } from './middleware/feature/quote';
 import { quoteReducer } from './reducers/quote';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
@@ -10,7 +11,7 @@ const rootReducer = combineReducers({
 
 const featureMiddleware = [quoteMiddleware];
 
-const coreMiddleware = [];
+const coreMiddleware = [apiMiddleware];
 
 const enhancer = compose(
   applyMiddleware(...featureMiddleware, ...coreMiddleware),
