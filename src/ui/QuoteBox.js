@@ -3,6 +3,10 @@ import { fetchQuote } from './../redux/actions/quote';
 import React from 'react';
 
 const QuoteBox = props => {
+  React.useEffect(() => {
+    props.fetchQuote('');
+  }, []);
+
   return (
     <div id='quote-box' className='col-sm-6 my-5'>
       <h1 className='mb-5'>Quote generator</h1>
