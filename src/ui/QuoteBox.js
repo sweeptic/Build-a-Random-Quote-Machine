@@ -1,13 +1,19 @@
 import {  getSingleQuoteAuthor, getSingleQuoteText } from './../redux/reducers/quote';
-import { connect } from 'react-redux';
+import {  useDispatch } from 'react-redux';
 import { fetchQuote } from './../redux/actions/quote';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-const QuoteBox = ({fetchQuote, getSingleQuoteText, getSingleQuoteAuthor}) => {
+const QuoteBox = () => {
+  
+    const QuoteText = useSelector(state => getSingleQuoteText(state))
+    const QuoteAuthor = useSelector(state => getSingleQuoteAuthor(state))
+    const dispatch = useDispatch()
+    
+    useEffect(() => {
+     dispatch(fetchQuote(''));
+    }, []);
 
-  React.useEffect(() => {
-    fetchQuote('');
-  }, [fetchQuote]);
 
 
   return (
@@ -16,23 +22,16 @@ const QuoteBox = ({fetchQuote, getSingleQuoteText, getSingleQuoteAuthor}) => {
       <h1 className='mb-5'>Quote generator</h1>
 
       <div className='card'>
-        <span className='card-header' id='author'>{getSingleQuoteAuthor}</span>
+        <span className='card-header' id='author'>{QuoteAuthor}</span>
         <div className='card-body'>
-          <p className='card-text' id='text'>{getSingleQuoteText}</p>
-          <button onClick={() => { fetchQuote(''); }} className='btn btn-primary m-2' id='new-quote'>new quote</button>
+          <p className='card-text' id='text'>{QuoteText}</p>
+          <button onClick={() => { dispatch(fetchQuote('')) }} className='btn btn-primary m-2' id='new-quote'>new quote</button>
           <a className='btn btn-secondary m-2'  href='https://twitter.com/intent/tweet' target="_blank"  id='tweet-quote'>tweet quote</a>
         </div>
       </div>
-
-
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return { 
-    getSingleQuoteText: getSingleQuoteText(state),
-    getSingleQuoteAuthor: getSingleQuoteAuthor(state) }
-}
 
-export default connect(mapStateToProps, { fetchQuote })(QuoteBox);
+export default QuoteBox;
