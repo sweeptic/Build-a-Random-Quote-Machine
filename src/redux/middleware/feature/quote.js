@@ -20,7 +20,9 @@ export const quoteMiddleware = () => next => action =>  {
       
 
       case `${QUOTE} ${API_SUCCESS}`:
-         next(setQuote({ quote: action.payload }));
+         console.log(action.payload);
+         
+         next(setQuote({ quote: action.payload.quotes, normalizeKey: true }));
          break;
 
          default:
