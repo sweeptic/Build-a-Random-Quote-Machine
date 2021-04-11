@@ -11,8 +11,8 @@ export const fetchQuote = ({ query }) => ({
   payload: query,
 });
 
-export const setQuote = ({ books, normalizeKey }) => ({
+export const setQuote = ({ quote, normalizeKey }) => ({
   type: SET_QUOTE,
-  payload: books,
+  payload: quote,
   meta: { normalizeKey, feature: QUOTE },
 });

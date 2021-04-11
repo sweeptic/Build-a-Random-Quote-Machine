@@ -8,7 +8,8 @@ export const quoteMiddleware = () => next => action =>  {
    next(action)
 
    switch (action.type) {
-      case FETCH_QUOTE:{
+
+      case FETCH_QUOTE:
          next(apiRequest({
             body: null,
             method: 'GET',
@@ -16,11 +17,13 @@ export const quoteMiddleware = () => next => action =>  {
             feature: QUOTE
          }))
          break;
-      }
+      
 
       case `${QUOTE} ${API_SUCCESS}`:
-         next(setQuote({ quote: action.payload.items }));
+         next(setQuote({ quote: action.payload }));
          break;
-   }
 
+         default:
+
+   }
 }
