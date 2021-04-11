@@ -1,6 +1,8 @@
+import { connect } from 'react-redux';
+import { fetchQuote } from './../redux/actions/quote';
 import React from 'react';
 
-const QuoteBox = () => {
+const QuoteBox = props => {
   return (
     <div id='quote-box' className='col-sm-6 my-5'>
       <h1 className='mb-5'>Quote generator</h1>
@@ -14,7 +16,13 @@ const QuoteBox = () => {
           <p className='card-text' id='text'>
             text
           </p>
-          <button className='btn btn-primary m-2' id='new-quote'>
+          <button
+            onClick={() => {
+              props.fetchQuote('');
+            }}
+            className='btn btn-primary m-2'
+            id='new-quote'
+          >
             new quote
           </button>
           <a
@@ -30,4 +38,4 @@ const QuoteBox = () => {
   );
 };
 
-export default QuoteBox;
+export default connect(null, { fetchQuote })(QuoteBox);

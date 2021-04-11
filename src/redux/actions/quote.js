@@ -1,4 +1,3 @@
-import { FETCH_QUOTE } from './quote';
 // feature name
 export const QUOTE = '[Quote]';
 
