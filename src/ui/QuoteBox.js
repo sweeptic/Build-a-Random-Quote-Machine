@@ -14,7 +14,7 @@ const QuoteBox = () => {
   }, [dispatch]);
 
   return (
-    <div id='quote-box' className='col-sm-6 mx-auto'>
+    <div id='quote-box' className='col-sm-6 mx-auto border border-dark rounded mt-5'>
       <h1 className='mb-5'>Quote generator</h1>
 
       <div className='card'>
