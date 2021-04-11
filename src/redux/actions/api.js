@@ -1,5 +1,6 @@
 // action_types;
 export const API_REQUEST = 'API_REQUEST';
+export const API_SUCCESS = 'API_SUCCESS';
 
 //action creators
 export const apiRequest = ({ body, method, url, feature }) => ({
