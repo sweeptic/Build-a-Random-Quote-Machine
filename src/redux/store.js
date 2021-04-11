@@ -1,3 +1,4 @@
+import { uiReducer } from './reducers/ui';
 import { normalizeMiddleware } from './middleware/core/normalize';
 import { apiMiddleware } from './middleware/core/api';
 import { quoteMiddleware } from './middleware/feature/quote';
@@ -7,15 +8,13 @@ import { DevTools } from '../ui/DevTool';
 
 // shape the state structure
 const rootReducer = combineReducers({
+  ui: uiReducer,
   quote: quoteReducer,
 });
 
 const featureMiddleware = [quoteMiddleware];
 
-const coreMiddleware = [
-  apiMiddleware,
-  normalizeMiddleware
-];
+const coreMiddleware = [apiMiddleware, normalizeMiddleware];
 
 const enhancer = compose(
   applyMiddleware(...featureMiddleware, ...coreMiddleware),
