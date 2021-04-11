@@ -1,4 +1,4 @@
-import { apiMiddleware } from './actions/api';
+import { apiMiddleware } from './middleware/core/api';
 import { quoteMiddleware } from './middleware/feature/quote';
 import { quoteReducer } from './reducers/quote';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
