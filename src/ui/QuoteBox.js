@@ -1,5 +1,8 @@
 import { getLoadingState } from './../redux/reducers/ui';
-import { getSingleQuoteAuthor, getSingleQuoteText } from './../redux/reducers/quote';
+import {
+  getSingleQuoteAuthor,
+  getSingleQuoteText,
+} from './../redux/reducers/quote';
 import { useDispatch } from 'react-redux';
 import { fetchQuote } from './../redux/actions/quote';
 import React, { useEffect } from 'react';
@@ -29,7 +32,9 @@ const QuoteBox = () => {
   }
 
   return (
-    <div id='quote-box' className='col-sm-6 mx-auto border border-dark rounded mt-5'>
+    <div
+      id='quote-box'
+      className='col-sm-6  mx-auto border border-dark rounded'>
       <div>
         <h1 className=' d-inline'>Random Quote Machine </h1>
         {contents}
